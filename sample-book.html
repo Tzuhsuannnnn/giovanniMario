@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>樣本購買 | 直盈國際有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-50 text-stone-800 antialiased">
+    <main class="min-h-screen max-w-4xl mx-auto px-6 py-12 md:py-20">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-sm font-medium text-blue-900 hover:underline"
+      >
+        ← 回首頁
+      </a>
+
+      <section class="mt-8 bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <p class="text-xs tracking-[0.2em] uppercase text-amber-700">
+          Sample Book
+        </p>
+        <h1 class="text-3xl md:text-5xl font-bold text-blue-950 mt-3">
+          樣本購買
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-stone-700">
+          我們提供最新布料樣本冊，協助您與客戶快速確認材質、紋理與顏色，提升提案效率。
+          如需預約看樣或訂購，請透過電話或 LINE 與我們聯繫。
+        </p>
+
+        <div class="mt-10 grid sm:grid-cols-2 gap-6">
+          <div class="rounded-xl border border-stone-200 p-6">
+            <h2 class="text-xl font-semibold text-blue-950">服務內容</h2>
+            <p class="mt-3 text-stone-600">
+              2026SS 最新樣本冊、面料建議、客製搭配諮詢。
+            </p>
+          </div>
+          <div class="rounded-xl border border-stone-200 p-6">
+            <h2 class="text-xl font-semibold text-blue-950">聯絡方式</h2>
+            <p class="mt-3 text-stone-600">電話：(02) 2556-6180</p>
+            <p class="text-stone-600">
+              營業時間：週一至週六 10:00-18:00（預約制）
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-10 bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+          <div>
+            <p class="text-xs tracking-[0.2em] uppercase text-amber-700">
+              Gallery
+            </p>
+            <h2 class="text-2xl md:text-4xl font-bold text-blue-950 mt-2">
+              樣本展示
+            </h2>
+            <p class="mt-3 text-stone-600">
+              點擊圖片可放大查看細節，歡迎預約參考
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <figure class="group overflow-hidden rounded-xl shadow-sm">
+            <img
+              src="images/book1.jpg"
+              alt="布卡展示 1"
+              class="w-full h-44 md:h-52 object-cover transition duration-300 group-hover:scale-105 cursor-zoom-in gallery-image"
+            />
+          </figure>
+          <figure class="group overflow-hidden rounded-xl shadow-sm">
+            <img
+              src="images/book2.jpg"
+              alt="布卡展示 2"
+              class="w-full h-56 md:h-72 object-cover transition duration-300 group-hover:scale-105 cursor-zoom-in gallery-image"
+            />
+          </figure>
+          <figure class="group overflow-hidden rounded-xl shadow-sm">
+            <img
+              src="images/chanel.jpg"
+              alt="布卡展示 3"
+              class="w-full h-44 md:h-52 object-cover transition duration-300 group-hover:scale-105 cursor-zoom-in gallery-image"
+            />
+          </figure>
+          <figure class="group overflow-hidden rounded-xl shadow-sm">
+            <img
+              src="images/book7.jpg"
+              alt="布卡展示 4"
+              class="w-full h-56 md:h-64 object-cover transition duration-300 group-hover:scale-105 cursor-zoom-in gallery-image"
+            />
+          </figure>
+          <figure class="group overflow-hidden rounded-xl shadow-sm">
+            <img
+              src="images/book6.jpg"
+              alt="布卡展示 5"
+              class="w-full h-44 md:h-56 object-cover transition duration-300 group-hover:scale-105 cursor-zoom-in gallery-image"
+            />
+          </figure>
+          <figure class="group overflow-hidden rounded-xl shadow-sm">
+            <img
+              src="images/book5.jpg"
+              alt="布卡展示 6"
+              class="w-full h-56 md:h-64 object-cover transition duration-300 group-hover:scale-105 cursor-zoom-in gallery-image"
+            />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+      aria-hidden="true"
+    >
+      <button
+        id="lightbox-close"
+        type="button"
+        aria-label="關閉圖片預覽"
+        class="absolute top-4 right-4 md:top-6 md:right-6 text-white text-3xl leading-none"
+      >
+        &times;
+      </button>
+      <img
+        id="lightbox-image"
+        src=""
+        alt=""
+        class="max-h-[90vh] max-w-[92vw] rounded-lg shadow-2xl object-contain"
+      />
+    </div>
+
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const galleryImages = document.querySelectorAll(".gallery-image");
+
+      const openLightbox = (src, alt) => {
+        lightboxImage.src = src;
+        lightboxImage.alt = alt;
+        lightbox.classList.remove("hidden");
+        lightbox.classList.add("flex");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.add("hidden");
+        lightbox.classList.remove("flex");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      galleryImages.forEach((img) => {
+        img.addEventListener("click", () => openLightbox(img.src, img.alt));
+      });
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !lightbox.classList.contains("hidden")) {
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>
