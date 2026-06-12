@@ -1,0 +1,176 @@
+/* =====================================================================
+   GIOVANNI MARIO — "Quiet Luxury" Atelier Theme
+   ---------------------------------------------------------------------
+   Pure-CSS override layer. Loads AFTER the Tailwind Play CDN and remaps
+   the inline utility classes to an editorial, cream + antique-gold look.
+   No HTML structure is touched — only the <head> gains <link> tags.
+   ===================================================================== */
+
+:root {
+  --cream:       #FBFBFA;   /* page canvas — premium linen */
+  --linen:       #F3F0E9;   /* recessed section blocks / footer */
+  --charcoal:    #1A1A1A;   /* primary type & dark panels */
+  --ink:         #33322E;   /* body copy, a touch softer than charcoal */
+  --muted:       #6F6C64;   /* secondary copy */
+  --gold:        #C5A880;   /* antique gold accent */
+  --gold-deep:   #A8895F;   /* gold hover / pressed */
+  --line:        #E6E1D7;   /* hairline border */
+  --line-strong: #D6CFBF;   /* stronger hairline on hover */
+
+  --font-serif: "Playfair Display", "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --font-sans:  "Inter", system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+
+  --ease: 0.4s ease;
+}
+
+/* ------------------------------------------------------------------ *
+ * 1. FOUNDATION — canvas & typography
+ * ------------------------------------------------------------------ */
+
+body {
+  background-color: var(--cream) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+/* Headings → elegant serif, calm weight, refined tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif) !important;
+  color: var(--charcoal);
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+/* The Tailwind weight utilities make serifs feel heavy — soften them */
+.font-extrabold { font-weight: 600 !important; }
+.font-bold      { font-weight: 600 !important; }
+.font-semibold  { font-weight: 500 !important; }
+
+p, span, li, a, figcaption { letter-spacing: 0.01em; }
+
+/* Eyebrow / uppercase micro-labels — wide tracking, gold */
+.uppercase { letter-spacing: 0.22em !important; }
+
+/* ------------------------------------------------------------------ *
+ * 2. COLOR REMAP — navy/yellow brand → charcoal/antique-gold
+ * ------------------------------------------------------------------ */
+
+/* Dark panels (header, GIOVANNI MARIO band) */
+.bg-gt-blue   { background-color: var(--charcoal) !important; }
+.bg-blue-950  { background-color: #000000 !important; }   /* header image overlay */
+
+/* Recessed cream blocks + footer */
+.bg-gt-cream  { background-color: var(--linen) !important; }
+.bg-stone-50  { background-color: var(--cream) !important; }
+
+/* Gold accents */
+.text-gt-gold { color: var(--gold) !important; }
+.text-amber-700 { color: var(--gold-deep) !important; }
+.bg-gt-gold   { background-color: var(--gold) !important; }
+
+/* Dark type that was navy */
+.text-gt-blue,
+.text-gt-text-dark,
+.text-blue-950,
+.text-blue-900 { color: var(--charcoal) !important; }
+
+/* Warm-grey body copy harmonised to the cream canvas */
+.text-stone-900 { color: var(--charcoal) !important; }
+.text-stone-800 { color: var(--ink) !important; }
+.text-stone-700 { color: #514E47 !important; }
+.text-stone-600 { color: var(--muted) !important; }
+.text-stone-500 { color: #8A877F !important; }
+.text-stone-200 { color: #D9D5CC !important; }   /* light copy on dark band */
+
+/* ------------------------------------------------------------------ *
+ * 3. SURFACES — crisp hairlines instead of heavy shadows
+ * ------------------------------------------------------------------ */
+
+/* Strip every drop shadow for the flat editorial feel */
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-inner { box-shadow: none !important; }
+
+/* Tighten the round, app-like corners into crisp couture edges */
+.rounded-2xl,
+.rounded-b-2xl,
+.rounded-xl,
+.rounded-lg { border-radius: 2px !important; }
+
+/* White content cards & panels → framed in a single hairline */
+.bg-white {
+  background-color: #FFFFFF !important;
+  border: 1px solid var(--line) !important;
+}
+
+/* Already-bordered cards: warm the stone borders to the palette */
+.border-stone-200 { border-color: var(--line) !important; }
+.border-stone-300 { border-color: var(--line-strong) !important; }
+
+/* Keep a soft, contained shadow ONLY on the lightbox preview */
+#lightbox-image.shadow-2xl {
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* ------------------------------------------------------------------ *
+ * 4. MOTION & INTERACTION — smooth 0.4s transitions
+ * ------------------------------------------------------------------ */
+
+a,
+button,
+.bg-white,
+figure img,
+.bg-gt-gold {
+  transition: color var(--ease), background-color var(--ease),
+              border-color var(--ease), transform var(--ease),
+              box-shadow var(--ease), opacity var(--ease) !important;
+}
+
+/* Service cards (home) — lift + gold hairline on hover */
+a.bg-white:hover {
+  border-color: var(--gold) !important;
+  transform: translateY(-4px);
+}
+
+/* "← 回首頁" back link — charcoal, gold on hover */
+a.text-blue-900 { color: var(--charcoal) !important; text-decoration: none; }
+a.text-blue-900:hover {
+  color: var(--gold-deep) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 4px;
+}
+
+/* Social buttons — gold disc that inverts to charcoal on hover */
+.bg-gt-gold { color: #FFFFFF !important; }
+.hover\:bg-yellow-500:hover { background-color: var(--charcoal) !important; }
+
+/* Gallery image zoom stays elegant */
+figure.group:hover { border-color: var(--gold) !important; }
+
+/* ------------------------------------------------------------------ *
+ * 5. SIGNATURE TOUCHES
+ * ------------------------------------------------------------------ */
+
+/* GIOVANNI MARIO wordmark — airy luxury tracking on the serif display */
+#giovanni-mario h1 {
+  letter-spacing: 0.16em !important;
+  font-weight: 500 !important;
+}
+
+/* Thin gold rule under the dark hero, framing the "Quiet Luxury" band */
+#giovanni-mario {
+  border-top: 1px solid rgba(197, 168, 128, 0.35) !important;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.35) !important;
+}
+
+/* Footer gains a delicate top hairline rather than a hard edge */
+footer.bg-gt-cream { border-top: 1px solid var(--line) !important; }
+
+/* Selection in the brand gold */
+::selection { background: var(--gold); color: #FFFFFF; }
